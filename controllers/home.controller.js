@@ -14,14 +14,14 @@ exports.homeGetController = async (req, res, next) => {
 exports.homePostController = async (req, res, next) => {
 	const { name, type, img } = req.body;
 	try {
-		let find = await Movie.find({ name: { $regex: name, $options: "i" } });
+		let find = await Movie.find({name: name.toLowerCase()});
 		if (find && find.length != 0) {
 			return res.send(
 				`"${name}" movie already exists in the gallery! <a  onclick='history.go(-1)' href='javascript:void(0)'>Back to home</a>`
 			);
 		}
 		const movie = new Movie({
-			name,
+			name: name.toLowerCase(),
 			type,
 		});
 		saveImage(movie, img);
