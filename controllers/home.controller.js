@@ -13,12 +13,18 @@ exports.homeGetController = async (req, res, next) => {
 
 exports.homePostController = async (req, res, next) => {
 	const { name, type, img } = req.body;
-	const movie = new Movie({
-		name,
-		type,
-	});
 	try {
-		await saveImage(movie, img);
+		let find = await Movie.find({ name: { $regex: name, $options: "i" } });
+		if (find && find.length != 0) {
+			return res.send(
+				`"${name}" movie already exists in the gallery! <a  onclick='history.go(-1)' href='javascript:void(0)'>Back to home</a>`
+			);
+		}
+		const movie = new Movie({
+			name,
+			type,
+		});
+		saveImage(movie, img);
 		await movie.save();
 		res.redirect("/");
 	} catch (err) {
@@ -28,7 +34,7 @@ exports.homePostController = async (req, res, next) => {
 
 // save the image into the mongodb
 let imageMimeType = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
-const saveImage = async (movie, imgEncoded) => {
+const saveImage = (movie, imgEncoded) => {
 	if (imgEncoded == null) return;
 	const img = JSON.parse(imgEncoded);
 	if (img != null && imageMimeType.includes(img.type)) {

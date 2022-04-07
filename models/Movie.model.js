@@ -4,10 +4,12 @@ const movieSchema = new Schema({
 	name: {
 		type: String,
 		required: true,
+		trim: true,
 	},
 	type: {
 		type: String,
 		required: true,
+		trim: true,
 	},
 	img: {
 		type: Buffer,
@@ -16,6 +18,7 @@ const movieSchema = new Schema({
 	imgType: {
 		type: String,
 		required: true,
+		trim: true,
 	},
 });
 
