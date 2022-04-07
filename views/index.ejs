@@ -39,12 +39,12 @@
         <form action="/add" method="post" class="ui form">
             <div class="ui fields two">
                 <div class="field">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required>
+                    <label for="name">Movie Name</label>
+                    <input type="text" name="name" id="name" title="Enter movie name" required>
                 </div>
                 <div class="ui field">
                     <label for="type">Genre</label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" title="Select a movie genre">
                         <option value="action">Action</option>
                         <option value="adventure">Adventure</option>
                         <option value="animation">Animation</option>
@@ -63,7 +63,7 @@
             </div>
             <div class="ui field mb-4">
                 <label for="img">Poster</label>
-                <input type="file" name="img" id="img" class="filepond" accept="images/*" required>
+                <input type="file" name="img" id="img" class="filepond" accept="images/*" title="Uplaod a movie poster" required>
             </div>
             <div class="ui field">
                 <button class="ui button green" type="submit">Upload Now</button>
