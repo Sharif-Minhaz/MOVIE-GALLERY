@@ -17,7 +17,7 @@ exports.homePostController = async (req, res, next) => {
 		let find = await Movie.find({name: name.toLowerCase()});
 		if (find && find.length != 0) {
 			return res.send(
-				`"${name}" movie already exists in the gallery! <a  onclick='history.go(-1)' href='javascript:void(0)'>Back to home</a>`
+				`"${name}" movie already exists in the gallery! <a onclick='history.go(-1)' href='javascript:void(0)'>Back to home</a>`
 			);
 		}
 		const movie = new Movie({

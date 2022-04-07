@@ -6,7 +6,7 @@
 .images.d-flex {
 	gap: 6px;
 	flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
 }
 .poster-container {
 	height: 222px;
@@ -50,4 +50,26 @@
 .poster-container:hover .shading {
 	opacity: 1;
 	visibility: visible;
+}
+.filepond--root {
+	width: 170px;
+	height: 238.5px !important;
+}
+.filepond--panel-root {
+	background-color: #edf0f4;
+	width: 170px;
+	height: 205px;
+}
+.filepond--item-panel {
+	background-color: #595e68;
+}
+.filepond--drip-blob {
+	background-color: #7f8a9a;
+}
+.filepond--item {
+	width: 140px;
+	height: 200px;
+}
+.filepond--root .filepond--credits[style] {
+	display: none;
 }
